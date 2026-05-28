@@ -1,4 +1,6 @@
-# IPQ6000系列6.18固件(含WIFI与NOWIFI）
+# IPQ6000系列6.18固件
+
+  可编译WIFI与NOWIFI，本次加入link_nn6000-v2的适配
   
   固件集成增强版geoip.dat、geosite.dat,开箱即用，正确配置Dae不会报错
 
