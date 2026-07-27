@@ -1,4 +1,4 @@
-#!/bin/bash
+﻿#!/bin/bash
 # SPDX-License-Identifier: MIT
 # Copyright (C) 2026 VIKINGYFY
 
@@ -53,6 +53,14 @@ UPDATE_PACKAGE "aurora" "eamonxg/luci-theme-aurora" "master"
 UPDATE_PACKAGE "aurora-config" "eamonxg/luci-app-aurora-config" "master"
 UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "master"
 UPDATE_PACKAGE "kucat-config" "sirpdboy/luci-app-kucat-config" "master"
+UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"
+UPDATE_PACKAGE "easytier" "EasyTier/luci-app-easytier" "main"
+UPDATE_PACKAGE "luci-app-homer" "JGG-SH/LuCI-APP-Homer" "main"
+UPDATE_PACKAGE "luci-app-lucky" "sirpdboy/luci-app-lucky" "main"
+UPDATE_PACKAGE "luci-app-vohive" "JGG-SH/luci-app-vohive" "main"
+
+## lucky 直接 git clone，不用 UPDATE_PACKAGE，直接克隆到 package/lucky
+git clone --depth=1 https://github.com/gdy666/luci-app-lucky.git lucky
 
 #UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
 UPDATE_PACKAGE "momo" "nikkinikki-org/OpenWrt-momo" "main"

@@ -1,4 +1,4 @@
-#!/bin/bash
+﻿#!/bin/bash
 # SPDX-License-Identifier: MIT
 # Copyright (C) 2026 VIKINGYFY
 
@@ -52,6 +52,11 @@ if [ -n "$WRT_PACKAGE" ]; then
 	echo -e "$WRT_PACKAGE" >> ./.config
 fi
 
+#VoHive可视控制面板及相关驱动依赖
+echo "CONFIG_PACKAGE_luci-app-vohive=m" >> ./.config
+echo "CONFIG_PACKAGE_vohive-core-arm64=m" >> ./.config
+echo "CONFIG_PACKAGE_socat=m" >> ./.config
+echo "CONFIG_PACKAGE_kmod-usb-serial-option=m" >> ./.config
 #高通平台调整
 DTS_PATH="./target/linux/qualcommax/dts/"
 if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
@@ -77,5 +82,11 @@ if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
 	echo "CONFIG_PACKAGE_kmod-usb-serial-qualcomm=y" >> ./.config
 fi
 #亚瑟修复USB2.0日志报错问题
-wget -qO - https://github.com/davidtall/immortalwrt/commit/ce39feb4.patch | patch -p1
-cat ./target/linux/qualcommax/dts/ipq6000-re-ss-01.dts
+if grep -q "CONFIG_TARGET_DEVICE_QUALCOMMAX_IPQ60XX_DEVICE_JDCLOUD_RE_SS_01=y" .config 2>/dev/null; then
+    echo "Applying DTS patch for JDCLOUD RE-SS-01..."
+    wget -qO - https://github.com/davidtall/immortalwrt/commit/ce39feb4.patch | patch -p1
+    echo "Verifying DTS file..."
+    cat ./target/linux/qualcommax/dts/ipq6000-re-ss-01.dts
+else
+    echo "Not re-ss-01 device, skipping DTS patch."
+fi
