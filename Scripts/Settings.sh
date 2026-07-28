@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 # SPDX-License-Identifier: MIT
 # Copyright (C) 2026 VIKINGYFY
 
@@ -53,8 +53,13 @@ if [ -n "$WRT_PACKAGE" ]; then
 fi
 
 #VoHive可视控制面板及相关驱动依赖
-echo "CONFIG_PACKAGE_luci-app-vohive=m" >> ./.config
-echo "CONFIG_PACKAGE_vohive-core-arm64=m" >> ./.config
+#修复vohive-core Makefile的CONFLICTS循环依赖（arm64 only编译时删除其他架构冲突声明）
+if [ -d "./package/luci-app-vohive/vohive-core" ]; then
+	sed -i '/CONFLICTS:=.*vohive-core-arm64/d' ./package/luci-app-vohive/vohive-core/Makefile
+	sed -i '/CONFLICTS:=.*vohive-core-amd64/d' ./package/luci-app-vohive/vohive-core/Makefile
+	sed -i '/CONFLICTS:=.*vohive-core-armv7/d' ./package/luci-app-vohive/vohive-core/Makefile
+fi
+#socat和kmod-usb-serial-option依赖（vohive本身已在GENERAL.txt中配置）
 echo "CONFIG_PACKAGE_socat=m" >> ./.config
 echo "CONFIG_PACKAGE_kmod-usb-serial-option=m" >> ./.config
 
