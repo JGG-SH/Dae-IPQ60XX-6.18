@@ -57,6 +57,7 @@ echo "CONFIG_PACKAGE_luci-app-vohive=m" >> ./.config
 echo "CONFIG_PACKAGE_vohive-core-arm64=m" >> ./.config
 echo "CONFIG_PACKAGE_socat=m" >> ./.config
 echo "CONFIG_PACKAGE_kmod-usb-serial-option=m" >> ./.config
+
 #高通平台调整
 DTS_PATH="./target/linux/qualcommax/dts/"
 if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
