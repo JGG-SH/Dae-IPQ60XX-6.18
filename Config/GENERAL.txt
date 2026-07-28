@@ -21,6 +21,8 @@ CONFIG_PACKAGE_luci-app-vohive=y
 CONFIG_PACKAGE_vohive-core-arm64=y
 CONFIG_PACKAGE_socat=y
 CONFIG_PACKAGE_kmod-usb-serial-option=y
+CONFIG_PACKAGE_smartdns=y
+CONFIG_PACKAGE_luci-app-smartdns=y
 
 #USBnet-iPhoneSupport
 #CONFIG_PACKAGE_usbmuxd=y
