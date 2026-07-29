@@ -58,7 +58,7 @@ UPDATE_PACKAGE "easytier" "EasyTier/luci-app-easytier" "main"
 UPDATE_PACKAGE "luci-app-homer" "JGG-SH/LuCI-APP-Homer" "main"
 UPDATE_PACKAGE "luci-app-lucky" "sirpdboy/luci-app-lucky" "main"
 UPDATE_PACKAGE "luci-app-vohive" "JGG-SH/luci-app-vohive" "main"
-UPDATE_PACKAGE "luci-app-smartdns" "pymumu/luci-app-smartdns" "lede"
+#UPDATE_PACKAGE "luci-app-smartdns" "pymumu/luci-app-smartdns" "lede"
 
 ## lucky 直接 git clone，不用 UPDATE_PACKAGE，直接克隆到 package/lucky
 git clone --depth=1 https://github.com/gdy666/luci-app-lucky.git lucky
