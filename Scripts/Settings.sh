@@ -87,6 +87,7 @@ if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
 	#其他调整
 	echo "CONFIG_PACKAGE_kmod-usb-serial-qualcomm=y" >> ./.config
 fi
+
 #亚瑟修复USB2.0日志报错问题
 if grep -q "CONFIG_TARGET_DEVICE_QUALCOMMAX_IPQ60XX_DEVICE_JDCLOUD_RE_SS_01=y" .config 2>/dev/null; then
     echo "Applying DTS patch for JDCLOUD RE-SS-01..."
