@@ -22,6 +22,7 @@ CONFIG_PACKAGE_luci-app-homer=y
 CONFIG_PACKAGE_luci-app-vohive=y
 CONFIG_PACKAGE_vohive-core-arm64=y
 CONFIG_PACKAGE_kmod-usb-serial-option=y
+# --- SOCAT：VoHive通过串口控制模块的通道工具 ---
 CONFIG_PACKAGE_socat=y
 # --- QMI依赖驱动三选一（标准版、移远版、广和通）---
 #CONFIG_PACKAGE_kmod-usb-net-qmi-wwan=y
